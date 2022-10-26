@@ -2,29 +2,26 @@ import { Component } from 'react';
 
 export class Searchbar extends Component {
   state = {
-    guery: ''
-  }
+    guery: '',
+  };
 
-  handleChange = (event) => {
-    const { value } = event.target
+  handleChange = event => {
+    const { value } = event.target;
     this.setState({
-      guery: value
-    }); 
-  }
+      guery: value,
+    });
+  };
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault();
-    this.props.handleSubmit(this.state.guery)
-  }
+    this.props.handleSubmit(this.state.guery);
+  };
 
   render() {
     return (
       <header className="searchbar">
-        <form
-          onSubmit={this.onSubmit}
-          className="form">
-          <button type="submit"
-            className="button">
+        <form onSubmit={this.onSubmit} className="form">
+          <button type="submit" className="button">
             <span className="button-label">Search</span>
           </button>
           <input

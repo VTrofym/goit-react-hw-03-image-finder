@@ -1,13 +1,14 @@
 import { Component } from 'react';
-import { Searchbar } from "components/Searchbar";
+import { Searchbar } from 'components/Searchbar';
 // import { ImageGalleryItem } from 'components/ImageGalleryItem';
-import { ImageGallery } from "components/ImageGallery";
+import { ImageGallery } from 'components/ImageGallery';
+// import css from './App.module.css'
 // import { getGalleryService } from 'Helpers/Api';
 
 export class App extends Component {
   state = {
     savedQuery: '',
-  }
+  };
 
   handleSubmit = query => {
     this.setState({ savedQuery: query });
