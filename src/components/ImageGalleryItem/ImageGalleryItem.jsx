@@ -10,7 +10,6 @@ export class ImageGalleryItem extends Component {
     const data = await getGalleryService();
     console.log('data', data);
 
-
   }
   render() {
     return (
