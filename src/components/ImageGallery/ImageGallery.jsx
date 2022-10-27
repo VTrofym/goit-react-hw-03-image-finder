@@ -1,7 +1,10 @@
 import { Component } from 'react';
-// import {Loader}
+import { Button } from 'components/Button/Button';
+import { Loader } from '../Loader';
 import { getGalleryService } from 'Helpers/Api';
 import { ImageGalleryItem } from 'components/ImageGalleryItem';
+import css from '../ImageGallery/ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
 export class ImageGallery extends Component {
   state = {
@@ -38,8 +41,8 @@ export class ImageGallery extends Component {
   render() {
     return (
       <>
-        {/* {this.state.isLoadind && <Loader />} */}
-        <ul className="gallery">
+        {this.state.isLoading && <Loader />}
+        <ul className={css.ImageGallery}>
           {this.state.images.map(image => (
             <ImageGalleryItem
               key={image.id}
@@ -49,10 +52,13 @@ export class ImageGallery extends Component {
             />
           ))}
         </ul>
-        <button onClick={this.loadMore} type="button">
-          Load more
-        </button>
+        <Button loadMore={this.loadMore} />
       </>
     );
   }
 }
+
+ImageGallery.propTypes = {
+  query: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+};
